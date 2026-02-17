@@ -1,0 +1,226 @@
+const form = document.getElementById("todo-form");  
+// Находит форму по id="todo-form"
+
+const input = document.getElementById("task-input");  
+// Находит поле ввода по id="task-input"
+
+const list = document.getElementById("tasks");  
+// Находит список <ul> по id="tasks"
+
+form.addEventListener("submit", function(event) {  
+// Слушает событие "submit" (когда нажал кнопку Add)
+    
+    event.preventDefault();  
+    // ОСТАНАВЛИВАЕТ перезагрузку страницы (по умолчанию форма перезагружает страницу)
+    
+    const li = document.createElement("li");  
+    // СОЗДАЁТ новый элемент <li> (таска)
+    
+    const checkbox = document.createElement("input");  
+    // СОЗДАЁТ чекбокс
+    checkbox.type = "checkbox";  
+    // Делает его типом "checkbox"
+    
+    const span = document.createElement("span");  
+    // СОЗДАЁТ <span> для текста таски
+    span.textContent = input.value;  
+    // Берёт текст из поля ввода и ставит его в span
+    
+    checkbox.addEventListener("change", function() {  
+    // Слушает когда чекбокс меняется (отметили/сняли)
+        span.classList.toggle("done");  
+        // toggle = включает/выключает класс "done" (зачёркивает текст в CSS)
+    });
+    
+    li.appendChild(checkbox);  
+    // Добавляет чекбокс ВНУТРЬ <li>
+    li.appendChild(span);  
+    // Добавляет текст ВНУТРЬ <li>
+    
+    const deleteBtn = document.createElement("button");  
+    // СОЗДАЁТ кнопку Delete
+    deleteBtn.textContent = "Delete";  
+    // Текст кнопки
+    
+    deleteBtn.addEventListener("click", function() {  
+    // Слушает клик на кнопку Delete
+        if (confirm("Ты точно хочешь удалить этот таск?")) {  
+        // confirm() - ПОКАЗЫВАЕТ ОКОШКО с вопросом (ОК/Отмена)
+            li.remove();  
+            // Если нажал ОК - УДАЛЯЕТ таску из DOM
+        }
+    });
+    
+    li.appendChild(deleteBtn);  
+    // Добавляет кнопку Delete в таску
+    
+    list.appendChild(li);  
+    // Добавляет всю таску в список <ul>
+    
+    input.value = "";  
+    // Очищает поле ввода (чтоб можно было сразу новую таску писать)
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+li:hover {
+    background: rgba(50, 50, 50, 0.8);  /* Фон темнее */
+    transform: translateX(10px);  /* СДВИГАЕТСЯ ВПРАВО НА 10px */
+    border-color: rgba(255, 255, 255, 0.3);  /* Рамка ярче */
+    box-shadow: 0 5px 20px rgba(255, 255, 255, 0.1);  /* Тень снизу */
+}
+
+
+li input[type="checkbox"] {
+    appearance: none;  /* Убирает стандартный вид чекбокса браузера */
+    -webkit-appearance: none;
+    width: 36px;
+    height: 36px;
+    border: 3px solid #ffffff;  /* Белая рамка */
+    border-radius: 10px;  /* Скругление */
+    background-color: transparent;  /* Прозрачный фон */
+    position: relative;  /* Нужно для ::after (галочки) */
+    transition: all 0.3s ease;  /* Плавные переходы */
+}
+
+li input[type="checkbox"]:hover {
+    transform: scale(1.1);  /* УВЕЛИЧИВАЕТСЯ НА 10% */
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);  /* СВЕТИТСЯ */
+}
+
+li input[type="checkbox"]:checked {  /* :checked = когда отмечен */
+    background: linear-gradient(135deg, #ffffff 0%, #d4d4d4 100%);  
+    /* Заливается белым градиентом */
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.5);  /* ЯРКО СВЕТИТСЯ */
+}
+
+li input[type="checkbox"]:checked::after {  /* ::after = добавляет элемент ПОСЛЕ */
+    content: '✓';  /* ГАЛОЧКА */
+    position: absolute;  /* Абсолютное позиционирование */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);  /* Центрирует галочку */
+    color: #0a0a0a;  /* Чёрная галочка */
+    font-size: 24px;
+    font-weight: bold;
+}
+
+
+
+
+
+
+button:hover {  /* :hover = когда мышка наведена */
+    transform: translateY(-4px);  /* КНОПКА ПОДНИМАЕТСЯ НА 4px */
+    box-shadow: 0 15px 40px rgba(255, 255, 255, 0.3);  /* Добавляется БОЛЬШАЯ тень внизу */
+}
+
+button:active {  /* :active = когда нажал на кнопку */
+    transform: translateY(-2px);  /* Опускается до 2px (было 4px) */
+}
+
+
+
+input[type="text"]:focus {  /* :focus = когда кликнул на поле */
+    border-color: #ffffff;  /* Рамка становится белой */
+    background-color: rgba(50, 50, 50, 0.9);  /* Фон темнее */
+    transform: translateY(-2px);  /* ПОДНИМАЕТСЯ НА 2px ВВЕРХ */
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);  /* Добавляется тень/свечение */
+}
+
+
+
+
+
+
+
+h1 {
+    font-size: 72px;  /* Огромный размер */
+    margin-bottom: 50px;  /* Отступ снизу */
+    text-align: center;  /* По центру */
+    font-weight: 700;  /* Жирность */
+    background: linear-gradient(135deg, #ffffff 0%, #d4d4d4 100%);  
+    /* Градиент от белого к серому */
+    -webkit-background-clip: text;  /* МАГИЯ: градиент применяется к тексту */
+    -webkit-text-fill-color: transparent;  /* Делает текст прозрачным, чтоб градиент был виден */
+    background-clip: text;
+}
+
+
+
+
+
+
+
+
+main {
+    width: 100%;
+    max-width: 900px;  /* Максимум 900px, дальше не растёт */
+    padding: 70px;  /* Внутренние отступы */
+    background: rgba(30, 30, 30, 0.8);  
+    /* Полупрозрачный тёмный фон (rgba = red, green, blue, alpha/прозрачность) */
+    backdrop-filter: blur(10px);  /* СТЕКЛЯННЫЙ ЭФФЕКТ - размывает то что за контейнером */
+    border-radius: 32px;  /* Скругляет углы */
+    border: 2px solid rgba(255, 255, 255, 0.1);  /* Тонкая полупрозрачная белая рамка */
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8);  
+    /* Тень: смещение по X, Y, размытие, цвет - создаёт объём */
+}
+
+
+
+
+
+body {
+    min-height: 100vh;  /* 100vh = 100% высоты экрана */
+    display: flex;  /* Flexbox для выравнивания */
+    justify-content: center;  /* Центрирует по горизонтали */
+    align-items: center;  /* Центрирует по вертикали */
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);  
+    /* Градиент: от чёрного к тёмно-серому под углом 135° */
+    color: #ffffff;  /* Белый текст */
+    font-family: 'Space Grotesk', sans-serif;  /* Шрифт */
+    padding: 30px;  /* Отступы по краям */
+}
+
+
+
+
+
+
+<!DOCTYPE html>  <!-- Говорит браузеру что это HTML5 -->
+<html lang="en">  <!-- Начало документа, язык английский -->
+<head>
+    <meta charset="UTF-8">  <!-- Кодировка текста (чтоб русский текст норм работал) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  <!-- Для мобилок, чтоб норм отображалось -->
+    <title>ToDo List</title>  <!-- Название вкладки в браузере -->
+    <link rel="stylesheet" href="style.css">  <!-- Подключает CSS файл (дизайн) -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet">  <!-- Подключает крутой шрифт с гугла -->
+</head>
+<body>  <!-- Тело страницы, всё что видно -->
+    <main>  <!-- Главный контейнер -->
+        <h1>ToDo List</h1>  <!-- Большой заголовок -->
+        <form id="todo-form">  <!-- Форма для добавления тасков, id нужен для JS -->
+            <label for="task-input">New Task:</label>  <!-- Надпись "New Task:" -->
+            <input type="text" id="task-input" placeholder="New task" required />  
+            <!-- Поле ввода: type="text" = текст, placeholder = подсказка серым, required = обязательно заполнить -->
+            <button type="submit">Add</button>  <!-- Кнопка добавления, type="submit" = отправить форму -->
+        </form>
+        <ul id="tasks"></ul>  <!-- Пустой список, сюда JS будет добавлять таски -->
+    </main>
+    <script src="script.js"></script>  <!-- Подключает JS файл (логика) -->
+</body>
+</html>

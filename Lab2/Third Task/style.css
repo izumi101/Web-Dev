@@ -1,0 +1,370 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  /* СИСТЕМНЫЙ ШРИФТ GITHUB */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  background-color: #ffffff;
+  color: #24292f;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* HEADER */
+.site-header {
+  background-color: #24292f;
+  padding: 16px 24px;
+  color: #ffffff;
+  margin-bottom: 40px;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.header-left, .header-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  color: #ffffff;
+  text-decoration: none;
+  margin-right: 16px;
+}
+
+.main-nav {
+  display: flex;
+  gap: 16px;
+}
+
+.main-nav a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.main-nav a:hover {
+  color: #d0d7de;
+}
+
+.search-box {
+  background-color: #24292f;
+  border: 1px solid #57606a;
+  border-radius: 6px;
+  padding: 3px 8px;
+  display: flex;
+  align-items: center;
+  width: 240px;
+  height: 32px;
+}
+
+.search-box input {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  outline: none;
+  width: 100%;
+  margin-left: 5px;
+  font-size: 14px;
+  font-family: inherit;
+}
+
+.search-icon, .slash-icon {
+  color: #57606a;
+  font-size: 12px;
+}
+
+.slash-icon {
+  border: 1px solid #57606a;
+  border-radius: 3px;
+  padding: 0 4px;
+  font-size: 10px;
+}
+
+.header-link {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.header-btn-signup {
+  color: #ffffff;
+  text-decoration: none;
+  border: 1px solid #ffffff;
+  border-radius: 6px;
+  padding: 4px 8px;
+  font-size: 14px;
+  font-weight: 400;
+  transition: 0.2s;
+}
+
+.header-btn-signup:hover {
+  text-decoration: none;
+  border-color: #d0d7de;
+  color: #d0d7de;
+}
+
+/* HERO */
+.pricing-header-text {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 60px;
+  padding: 0 20px;
+}
+
+.pricing-header-text h1 {
+  font-size: 48px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  margin-bottom: 16px;
+  color: #1F2328;
+}
+
+.pricing-header-text .subtitle {
+  font-size: 20px;
+  color: #636c76;
+  margin: 0;
+}
+
+.btn-hero {
+  display: inline-block;
+  padding: 12px 24px;
+  border: 1px solid #d0d7de;
+  border-radius: 6px;
+  background-color: #ffffff;
+  color: #24292f;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 16px;
+  transition: background-color 0.2s;
+}
+
+.btn-hero:hover {
+  background-color: #f3f4f6;
+}
+
+/* PRICING GRID */
+.pricing-container {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  max-width: 1280px;
+  margin: 0 auto 80px;
+  flex-wrap: wrap;
+  align-items: stretch;
+  padding: 0 20px;
+}
+
+.plan-card {
+  background: #ffffff;
+  border: 1px solid #d0d7de;
+  border-radius: 6px;
+  padding: 32px;
+  flex: 1;
+  min-width: 300px;
+  max-width: 380px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: box-shadow 0.3s ease;
+}
+
+.plan-card:hover {
+  box-shadow: 0 8px 24px rgba(140,149,159,0.2);
+}
+
+.plan-card.popular {
+  border: 2px solid #0969da;
+  z-index: 1;
+}
+
+.badge-popular {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #0969da;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 100px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.card-header {
+  margin-bottom: 24px;
+}
+
+.plan-title {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0 0 8px 0;
+  color: #1F2328;
+}
+
+.plan-desc {
+  color: #636c76;
+  font-size: 14px;
+  min-height: 42px;
+  margin: 0;
+}
+
+.card-price {
+  margin-bottom: 24px;
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+}
+
+.currency {
+  font-size: 24px;
+  color: #636c76;
+  margin-right: 2px;
+}
+
+.amount {
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 1;
+  color: #1F2328;
+}
+
+.period {
+  color: #636c76;
+  margin-left: 8px;
+  font-size: 14px;
+}
+
+/* BUTTONS */
+.btn {
+  display: block;
+  width: 100%;
+  padding: 12px 20px;
+  text-align: center;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+  transition: all 0.2s;
+  margin-bottom: 16px;
+  line-height: 20px;
+}
+
+/* Кнопка "Join for free" */
+.btn-outline {
+  background: #ffffff;
+  border: 1px solid #d0d7de;
+  color: #0969da;
+}
+
+.btn-outline:hover {
+  background-color: #f3f4f6;
+  border-color: #d0d7de;
+  text-decoration: none;
+}
+
+/* Кнопка "Continue with Team" */
+.btn-primary {
+  background-color: #1f883d; /* GitHub Green */
+  color: #ffffff;
+  border: 1px solid rgba(27,31,36,0.15);
+}
+
+.btn-primary:hover {
+  background-color: #1a7f37;
+}
+
+/* Новая кнопка "Start a free trial" (Enterprise) */
+.btn-outline-primary {
+  background: #ffffff;
+  border: 1px solid #d0d7de;
+  color: #0969da;
+  /* Enterprise CTA часто выделяют так же, как outline, но на первом месте */
+}
+
+.btn-outline-primary:hover {
+  background-color: #f3f4f6;
+  border-color: #d0d7de;
+}
+
+/* FEATURES */
+.card-features {
+  border-top: 1px solid #d0d7de;
+  padding-top: 24px;
+  margin-top: 16px;
+  flex-grow: 1;
+}
+
+.features-title {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: #1F2328;
+  margin-top: 0;
+}
+
+.feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.feature-list li {
+  font-size: 14px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: flex-start;
+  line-height: 1.5;
+  color: #1F2328;
+}
+
+.octicon {
+  fill: #1a7f37;
+  margin-right: 12px;
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+/* MEDIA */
+@media (max-width: 900px) {
+  .pricing-container {
+      flex-direction: column;
+      align-items: center;
+  }
+  
+  .plan-card {
+      width: 100%;
+      max-width: 500px;
+  }
+
+  .pricing-header-text h1 {
+      font-size: 32px;
+  }
+
+  .header-container {
+      flex-direction: column;
+      gap: 15px;
+  }
+  
+  .header-left, .header-right {
+      width: 100%;
+      justify-content: center;
+  }
+
+  .main-nav, .search-box {
+      display: none;
+  }
+}
