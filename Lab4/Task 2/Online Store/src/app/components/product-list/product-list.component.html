@@ -1,0 +1,13 @@
+<section class="product-list-section">
+    <div class="list-header">
+      <h1 class="list-title">Kaspi.kz — Каталог товаров</h1>
+      <p class="list-subtitle">{{ products.length }} товаров</p>
+    </div>
+
+    <div class="product-grid">
+      <app-product-card
+        *ngFor="let product of products; trackBy: trackById"
+        [product]="product"
+      ></app-product-card>
+    </div>
+  </section>

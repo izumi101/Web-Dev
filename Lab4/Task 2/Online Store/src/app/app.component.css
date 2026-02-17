@@ -1,0 +1,74 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  background: #f2f4f8;
+}
+
+/* Header */
+.app-header {
+  background: #ffffff;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 200;
+}
+
+.header-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-logo {
+  font-family: 'Nunito', 'Segoe UI', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: #1a1a2e;
+  letter-spacing: -0.5px;
+}
+
+.logo-k {
+  color: #e63f00;
+}
+
+.logo-dot {
+  color: #e63f00;
+}
+
+.header-nav a {
+  font-size: 0.9rem;
+  color: #555;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 6px 14px;
+  border-radius: 8px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.header-nav a:hover {
+  background: #f5f5f5;
+  color: #1a1a2e;
+}
+
+/* Footer */
+.app-footer {
+  text-align: center;
+  padding: 24px 20px;
+  font-size: 0.82rem;
+  color: #999;
+  border-top: 1px solid #e8e8e8;
+  background: #fff;
+}
+
+.app-footer a {
+  color: #e63f00;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.app-footer a:hover {
+  text-decoration: underline;
+}
