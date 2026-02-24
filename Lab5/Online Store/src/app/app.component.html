@@ -1,0 +1,48 @@
+<header class="app-header">
+  <div class="header-inner">
+    <div class="header-logo">
+      <span class="logo-k">K</span>aspi<span class="logo-dot">.</span>store
+    </div>
+    <nav class="header-nav">
+      <a href="https://kaspi.kz" target="_blank" rel="noopener noreferrer">Kaspi.kz</a>
+    </nav>
+  </div>
+</header>
+
+<!-- Category Navigation -->
+<div class="category-nav-wrapper">
+  <nav class="category-nav">
+    @for (category of categories; track category.id) {
+    <button class="category-btn" [class.active]="category.id === selectedCategoryId"
+      (click)="selectCategory(category.id)">
+      {{ category.name }}
+    </button>
+    }
+  </nav>
+</div>
+
+<main class="main-content">
+  @if (selectedCategoryId !== null) {
+  <app-product-list [products]="productsForSelectedCategory"
+    (removeProduct)="handleRemoveProduct($event)"></app-product-list>
+  } @else {
+  <!-- Welcome Screen when no category is selected -->
+  <div class="welcome-container">
+    <div class="welcome-card">
+      <div class="welcome-icon">👋</div>
+      <h1 class="welcome-title">Добро пожаловать в Kaspi.store</h1>
+      <p class="welcome-description">
+        Выберите категорию выше, чтобы начать просмотр товаров.
+      </p>
+      <button class="welcome-btn" (click)="selectCategory(categories[0].id)">
+        Посмотреть смартфоны
+      </button>
+    </div>
+  </div>
+  }
+</main>
+
+<footer class="app-footer">
+  <p>Данные товаров взяты с <a href="https://kaspi.kz" target="_blank" rel="noopener noreferrer">kaspi.kz</a> · Web
+    Development Lab 5</p>
+</footer>
