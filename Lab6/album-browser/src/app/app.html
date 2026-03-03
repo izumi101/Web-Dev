@@ -1,0 +1,16 @@
+<header class="topbar">
+  <a class="brand" routerLink="/home">
+    <div class="brand-icon">🎵</div>
+    <span>Album Browser</span>
+  </a>
+
+  <nav>
+    <a routerLink="/home"   routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Home</a>
+    <a routerLink="/about"  routerLinkActive="active">About</a>
+    <a routerLink="/albums" routerLinkActive="active">Albums</a>
+  </nav>
+</header>
+
+<main class="content">
+  <router-outlet></router-outlet>
+</main>

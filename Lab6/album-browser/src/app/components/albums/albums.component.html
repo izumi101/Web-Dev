@@ -1,0 +1,47 @@
+<section class="page">
+  <div class="page-header">
+    <h1>Albums</h1>
+    @if (!isLoading && albums.length) {
+    <span class="badge">{{ albums.length }} albums</span>
+    }
+  </div>
+
+  <!-- Loading skeleton -->
+  @if (isLoading) {
+  <div class="skeleton-list">
+    @for (i of [1,2,3,4,5,6]; track i) {
+    <div class="skeleton-item"></div>
+    }
+  </div>
+  }
+
+  <!-- Error -->
+  @if (errorMessage) {
+  <div class="alert alert-error">
+    <span>⚠️ {{ errorMessage }}</span>
+    <button type="button" class="btn-retry" (click)="loadAlbums()">Retry</button>
+  </div>
+  }
+
+  <!-- Empty -->
+  @if (!isLoading && !errorMessage && albums.length === 0) {
+  <p class="empty-state">No albums found.</p>
+  }
+
+  <!-- List -->
+  @if (!isLoading && albums.length > 0) {
+  <ul class="album-list">
+    @for (album of albums; track album.id) {
+    <li class="album-item">
+      <a [routerLink]="['/albums', album.id]" class="album-link">
+        <div class="album-id">#{{ album.id }}</div>
+        <div class="album-title">{{ album.title }}</div>
+      </a>
+      <button type="button" class="btn-delete" (click)="onDelete(album, $event)" title="Delete album">
+        🗑
+      </button>
+    </li>
+    }
+  </ul>
+  }
+</section>

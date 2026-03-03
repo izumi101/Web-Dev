@@ -1,0 +1,45 @@
+<section class="page">
+  <div class="back-row">
+    <button type="button" class="btn-back" (click)="goBack()">← Back to Album</button>
+  </div>
+
+  <div class="page-header">
+    <h1>Album #{{ albumId }} Photos</h1>
+    @if (!isLoading && photos.length) {
+    <span class="badge">{{ photos.length }} photos</span>
+    }
+  </div>
+
+  <!-- Loading skeleton grid -->
+  @if (isLoading) {
+  <div class="photo-grid">
+    @for (i of [1,2,3,4,5,6,7,8,9,10,11,12]; track i) {
+    <div class="photo-skel"></div>
+    }
+  </div>
+  }
+
+  <!-- Error -->
+  @if (errorMessage) {
+  <div class="alert alert-error">⚠️ {{ errorMessage }}</div>
+  }
+
+  <!-- Empty -->
+  @if (!isLoading && !errorMessage && photos.length === 0) {
+  <p class="empty-state">No photos found.</p>
+  }
+
+  <!-- Photos grid -->
+  @if (!isLoading && photos.length > 0) {
+  <div class="photo-grid">
+    @for (photo of photos; track photo.id) {
+    <article class="photo-card">
+      <div class="photo-img-wrap">
+        <img [src]="photo.thumbnailUrl | thumbSvg" [alt]="photo.title" loading="lazy" />
+      </div>
+      <p class="photo-title" [title]="photo.title">{{ photo.title }}</p>
+    </article>
+    }
+  </div>
+  }
+</section>
