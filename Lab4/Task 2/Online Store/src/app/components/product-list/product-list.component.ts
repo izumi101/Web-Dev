@@ -138,7 +138,7 @@ export class ProductListComponent {
       images: [
         'assets/images/Applewatch.jpg',
         'assets/images/Applewatch.jpg',
-        'assets/images/Applewatch.jpg'
+        'assets/images/airpods2pro.jpg'
       ],
       link: 'https://kaspi.kz/shop/p/apple-watch-series-9-gps-s-m-41-mm-serebristyi-sinii-113398164/'
     },

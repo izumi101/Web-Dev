@@ -1,0 +1,49 @@
+<section class="page">
+
+  <!-- Loading -->
+  @if (isLoading) {
+  <div class="skeleton-detail">
+    <div class="skel skel-title"></div>
+    <div class="skel skel-row"></div>
+    <div class="skel skel-input"></div>
+    <div class="skel skel-actions"></div>
+  </div>
+  }
+
+  <!-- Error -->
+  @if (errorMessage) {
+  <div class="alert alert-error">⚠️ {{ errorMessage }}</div>
+  }
+
+  <!-- Detail card -->
+  @if (album && !isLoading) {
+  <div class="back-row">
+    <button type="button" class="btn-back" (click)="goBack()">← Back</button>
+  </div>
+
+  <div class="detail-card">
+    <div class="detail-header">
+      <div class="detail-id">Album #{{ album.id }}</div>
+      <div class="detail-meta">User ID: {{ album.userId }}</div>
+    </div>
+
+    <div class="field-group">
+      <label class="field-label" for="albumTitle">Title</label>
+      <input id="albumTitle" type="text" class="field-input" [(ngModel)]="title" />
+    </div>
+
+    <div class="detail-actions">
+      <button type="button" class="btn-primary" (click)="onSave()" [disabled]="isSaving">
+        {{ isSaving ? 'Saving…' : '💾 Save' }}
+      </button>
+      <a class="btn-ghost" [routerLink]="['/albums', album.id, 'photos']">🖼 View Photos</a>
+    </div>
+
+    @if (saveMessage) {
+    <div class="save-message" [class.error]="saveMessage.includes('Failed')">
+      {{ saveMessage }}
+    </div>
+    }
+  </div>
+  }
+</section>
